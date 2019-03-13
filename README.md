@@ -20,19 +20,10 @@ mkdir -p data/Data
 docker run --rm -itd --name ipasc -e "RPC_WHITELIST=127.0.0.1;172.17.0.1" -p 0.0.0.0:4003:4003 -v `pwd`/data:/root/PascalCoin pascalcoin
 ```
 
-## Persist data
-
-By using [CWSpear/local-persist](https://github.com/CWSpear/local-persist):
-
-```
-curl -fsSL https://raw.githubusercontent.com/CWSpear/local-persist/master/scripts/install.sh | sudo bash
-docker volume create -d local-persist -o mountpoint=/data/pasc-data --name=pasc-data
-```
-
 ## Using pre-built docker image
 
 Using automated build image from <https://hub.docker.com/r/mixhq/pascalcoin/>:
 
 ```
-docker run --rm -itd --name ipasc -e "RPC_WHITELIST=127.0.0.1;172.17.0.1" -p 0.0.0.0:4003:4003 -v pasc-data:/root/PascalCoin mixhq/pascalcoin
+docker run --rm -itd --name ipasc -e "RPC_WHITELIST=127.0.0.1;172.17.0.1" -p 0.0.0.0:4003:4003 -v `pwd`/data:/root/PascalCoin mixhq/pascalcoin
 ```
